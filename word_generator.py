@@ -214,20 +214,20 @@ def _write_data(word_freq_list, doc_list, pos_list, sent_list):
 def _process_args():
 	"""
 	Parses and processes args.
-	The user has ability to pass in documents and number of desired words (hashtags)
+	The user has ability to pass in documents and number of desired words
 
 	Returns:
 		args: arguments that the user passes
 	"""
-	parser = argparse.ArgumentParser(description="Please enter list of documents to scan and number of words (hashtags) to output.")
+	parser = argparse.ArgumentParser(description="Please enter list of documents to scan and number of words to output.")
 	parser.add_argument("--doc", help="Flag for entering documents.", nargs="+", dest="doc")
-	parser.add_argument("--num", help="Flag for entering number of words (hashtags).", type=int, dest="num")
+	parser.add_argument("--num", help="Flag for entering number of words.", type=int, dest="num")
 	args = parser.parse_args()
 	if args.doc is None:  # If no flag is passed in, automatically call test documents
 		print("No documents passed; using sample documents: doc1.txt, doc2.txt, doc3.txt, doc4.txt, doc5.txt, doc6.txt")
 		args.doc = DOC_LIST
 	if args.num is None:
-		print("No number of words (hashtags) passed, using default number: 20")
+		print("No number of words passed, using default number: 20")
 		args.num = DEFAULT_NUM
 	return args
 
